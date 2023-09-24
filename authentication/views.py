@@ -1,4 +1,5 @@
 # import this to require login
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
@@ -6,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -47,6 +48,10 @@ def register(request):
                 mail_subject, message, to=[to_email]
             )
             email.send()
+            messages.success(request, 'Account created successfully. Please check your email to activate your account.')
+            return redirect('login')
+        else:
+            messages.error(request, 'Account creation failed. Please try again.')
 
 
     return render(request, 'authentication/register.html',{
