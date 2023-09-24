@@ -126,3 +126,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "homepage"
 LOGOUT_REDIRECT_URL = "login"
+
+# Setting up Email Backend
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+
+# Email Host Email Address
+EMAIL_HOST_USER = ''
+
+# Email Host App Password
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+
+# Default email address to use for various automated correspondence from the site managers.
+DEFAULT_FROM_EMAIL = 'Django Test Email Address'

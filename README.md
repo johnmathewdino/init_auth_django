@@ -24,7 +24,7 @@ Follow these steps to get the project up and running on your local development e
 2. Navigate to the project directory:
 
    ```bash
-   cd django-authentication-starter
+   cd init_django_auth
    ```
 
 3. Create a virtual environment and activate it:
@@ -40,25 +40,48 @@ Follow these steps to get the project up and running on your local development e
    pip install -r requirements.txt
    ```
 
-5. Apply database migrations:
+5. Set up the email backend (see instructions below).
+
+
+6. Apply database migrations:
 
    ```bash
    python manage.py migrate
    ```
 
-6. Create a superuser to access the Django admin panel:
+7. Create a superuser to access the Django admin panel:
 
    ```bash
    python manage.py createsuperuser
    ```
 
-7. Start the development server:
+8. Start the development server:
 
    ```bash
    python manage.py runserver
    ```
 
-8. Access the admin panel at `http://localhost:8000/admin/` and log in with your superuser credentials.
+9. Access the admin panel at `http://localhost:8000/admin/` and log in with your superuser credentials.
+
+
+## Setting up Email Backend
+
+### To get email app password
+1. Go to https://myaccount.google.com/
+2. Click on Security
+3. Set up your 2-Step Verification
+4. Click on App Passwords
+5. Input an App Name and click on Create
+6. Copy the generated password
+7. Paste it in the EMAIL_HOST_PASSWORD field in settings.py
+
+```bash
+   # Email Host Email Address
+  EMAIL_HOST_USER = ''
+
+  # Email Host App Password
+  EMAIL_HOST_PASSWORD = ''
+   ```
 
 ## Usage
 

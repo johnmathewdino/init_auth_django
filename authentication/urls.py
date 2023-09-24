@@ -14,6 +14,9 @@ urlpatterns = [
     # path for register view
     path('register/', views.register, name='register'),
 
+    #path for activate view
+    path('activate/<uidb64>/<token>/', views.activate, name='activate'),
+
     # path for homepage where successfull login will redirect
     path('', views.homepage, name='homepage'),
 
