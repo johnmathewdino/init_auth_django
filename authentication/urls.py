@@ -11,6 +11,9 @@ urlpatterns = [
     # logout view from auth_view
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 
+    # path for register view
+    path('register/', views.register, name='register'),
+
     # path for homepage where successfull login will redirect
     path('', views.homepage, name='homepage'),
 
