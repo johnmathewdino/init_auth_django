@@ -2,6 +2,8 @@
 
 Welcome to the Django Authentication Starter project! This project provides a solid foundation for building web applications with user authentication features, including user registration, login, logout, forgot password, password reset, and email confirmation.
 
+You can use this as a starter project for your own Django web applications or you can copy the authentication app into your existing Django project.
+
 ## Features
 
 - User Registration: Allow users to create new accounts by providing basic information.
@@ -11,6 +13,103 @@ Welcome to the Django Authentication Starter project! This project provides a so
 - Forgot Password: Enable users to reset their passwords via email.
 - Password Reset: Allow users to set a new password after forgetting the old one.
 
+## Directory Structure
+
+The following is a high-level overview of the project structure:
+
+```bash
+init_django_auth
+├── authentication
+├── core
+├── templates
+├── .gitignore
+├── manage.py
+├── README.md
+└── requirements.txt
+
+```
+Important files and directories:
+- `/init_django_auth/`: This is the root directory of the project.
+- `/authentication/`: This directory contains the Django app responsible for user authentication features.
+- `/core/`: This directory contains the project settings and URL configurations.
+- `/templates/`: This directory contains the HTML templates for the authentication views.
+- `requirements.txt`: This file contains a list of Python packages required to run the project.
+
+### The Authentication App
+
+The authentication app is the star of this project. It contains the views, forms, models, and templates for user authentication features. The following is the directory structure of the authentication app:
+
+```bash
+authentication
+├── migrations
+├── __init__.py
+├── admin.py
+├── apps.py
+├── forms.py
+├── models.py
+├── tests.py
+├── urls.py
+└── views.py
+```
+
+Important files and directories in the authentication app:
+- `forms.py`: This file contains the forms for UserRegistrationForm. UserRegistrationForm is a custom form that inherits from Django's built-in UserCreationForm.
+- `urls.py`: This file contains the URL patterns for the authentication views.
+- `views.py`: This file contains the views for user authentication features.
+
+### The Core 
+
+The core directory contains the project settings and URL configurations. The following is the directory structure of the core directory:
+
+```bash
+core
+├── __init__.py
+├── asgi.py
+├── settings.py
+├── urls.py
+└── wsgi.py
+```
+Important files and directories inside the core directory:
+- `settings.py`: This file contains the project settings, including authentication settings.
+- `urls.py`: This file contains the URL patterns for the authentication views.
+
+
+### The Templates Directory
+The templates directory contains the HTML templates for the authentication views. The following is the directory structure of the templates directory:
+
+```bash
+templates
+├── authentication
+│   ├── email_activation
+│   │   ├── activate_email_message.html
+│   │   ├── activation_successful.html
+│   │   ├── activation_unsucessful.html
+│   │   └── email_sent.html
+│   ├── login.html
+│   ├── password_reset.html
+│   ├── password_reset_complete.html
+│   ├── password_reset_confirm.html
+│   ├── password_reset_done.html
+│   └── register.html
+└── homepage.html
+```
+
+Important files and directories inside the templates directory:
+- `authentication/`: This directory contains the HTML templates for the authentication views.
+- `homepage.html`: This file contains the HTML template for the homepage. This is where the user will be redirected after logging in.
+- `authentication/login.html`: This file contains the HTML template for the login view.
+- `authentication/password_reset.html`: This file contains the HTML template for the password reset view.
+- `authentication/password_reset_complete.html`: This file contains the HTML template for the password reset complete view when the password reset is successful
+- `authentication/password_reset_confirm.html`: This file contains the HTML template for the password reset confirm view when the user clicks the link in the email. This containes the form for the user to enter the new password.
+- `authentication/password_reset_done.html`: This file contains the HTML template for the password reset done view. This is the page that the user will be redirected to after the password reset is successful.
+- `authentication/register.html`: This file contains the HTML template for the user registration view.
+- `authentication/email_activation/`: This directory contains the HTML templates for the email activation views.
+- `authentication/email_activation/activate_email_message.html`: This file contains the HTML template for the email message sent to users for email activation.
+- `authentication/email_activation/activation_successful.html`: This file contains the HTML template for the email activation successful view.
+- `authentication/email_activation/activation_unsuccessful.html`: This file contains the HTML template for the email activation unsuccessful view.
+- `authentication/email_activation/email_sent.html`: This file contains the HTML template for the email sent view.
+
+
 ## Getting Started
 
 Follow these steps to get the project up and running on your local development environment:
@@ -18,13 +117,13 @@ Follow these steps to get the project up and running on your local development e
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/johnmathewdino/init_django_auth.git
+   git clone https://github.com/johnmathewdino/init_auth_django.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd init_django_auth
+   cd init_auth_django
    ```
 
 3. Create a virtual environment and activate it:
