@@ -77,6 +77,8 @@ Important files and directories inside the core directory:
 ### The Templates Directory
 The templates directory contains the HTML templates for the authentication views. The following is the directory structure of the templates directory:
 
+Note: The HTML contains skeleton code for the views. You can customize the HTML to suit your needs.
+
 ```bash
 templates
 ├── authentication
@@ -112,7 +114,14 @@ Important files and directories inside the templates directory:
 
 ## Getting Started
 
-Follow these steps to get the project up and running on your local development environment:
+You can use this project as:
+1. Starter file for your own Django web applications
+2. Copy the authentication app into your existing Django project 
+
+
+### As a Starter Project
+
+To use this project as a starter project for your own Django web applications, follow these steps:
 
 1. Clone the repository:
 
@@ -162,8 +171,37 @@ Follow these steps to get the project up and running on your local development e
 
 9. Access the admin panel at `http://localhost:8000/admin/` and log in with your superuser credentials.
 
+### Copy the Authentication App into existing Django Project
+
+To copy the authentication app into your existing Django project, follow these steps:
+
+1. Copy the `authentication` directory into your Django project directory.
+2. Copy the `templates` directory into your Django project directory.
+3. Add `authentication` to the `INSTALLED_APPS` list in your project's `settings.py` file.
+
+```bash 
+INSTALLED_APPS = [
+    ...
+    'authentication',
+    ...
+]
+```
+4. Add the following to your project's `urls.py` file:
+
+```bash
+from django.urls import path, include
+
+urlpatterns = [
+    ...
+    path('authentication/', include('authentication.urls')),
+    ...
+]
+```
+
 
 ## Setting up Email Backend
+
+The Email Backend will let you send emails to users for email confirmation, password reset, etc. To set up the email backend, follow these steps:
 
 ### To get email app password
 1. Go to https://myaccount.google.com/
@@ -172,25 +210,21 @@ Follow these steps to get the project up and running on your local development e
 4. Click on App Passwords
 5. Input an App Name and click on Create
 6. Copy the generated password
-7. Paste it in the EMAIL_HOST_PASSWORD field in settings.py
+7. Make sure you have to following in your settings.py file
 
-```bash
-   # Email Host Email Address
-  EMAIL_HOST_USER = ''
+   ```bash
+   EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+   EMAIL_HOST = 'smtp.gmail.com'
+   EMAIL_PORT = 587
+   EMAIL_USE_TLS = True
+   EMAIL_USE_SSL = False
+   EMAIL_HOST_USER = ''
+   EMAIL_HOST_PASSWORD = ''
+    ```
 
-  # Email Host App Password
-  EMAIL_HOST_PASSWORD = ''
-   ```
+8. Replace EMAIL_HOST_USER with your email address
+9. Replace EMAIL_HOST_PASSWORD with the app password you generated
 
-## Usage
-
-You can now build your web application on top of this authentication starter. Here are some important files and directories to get you started:
-
-- `authentication`: The Django app responsible for user authentication features.
-- `templates`: Store your HTML templates for registration, login, password reset, etc.
-- `urls.py`: Define your URL patterns for authentication views and routes.
-- `settings.py`: Configure authentication settings like email backend, authentication backends, and more.
-- `views.py`: Customize authentication views or create your own views as needed.
 
 ## Contributing
 
