@@ -186,7 +186,16 @@ INSTALLED_APPS = [
     ...
 ]
 ```
-4. Add the following to your project's `urls.py` file:
+
+4. Add the following to your project's `settings.py` file:
+
+```bash
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "homepage"
+LOGOUT_REDIRECT_URL = "login"
+```
+
+5. Add the following to your project's `urls.py` file:
 
 ```bash
 from django.urls import path, include
